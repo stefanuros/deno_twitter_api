@@ -49,6 +49,11 @@ The same goes for requests with `twitterApi.request()`. The only difference is t
 first paramter is `GET` or `POST`. The url becomes the second parameter and the
 query parameters become the third parameter.
 
+If you are working with the Twitter Ads Api, or the Twitter Developer Labs Endpoint, 
+the baseurl set by default will not work for you. It is set to `https://api.twitter.com/1.1/`
+by default. You can change this by calling `setBaseUrl("new url here");`. This will 
+the url you set when making the call to the twitter api.
+
 ## Response
 ```json
 [

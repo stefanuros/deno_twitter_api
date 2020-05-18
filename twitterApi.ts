@@ -18,7 +18,7 @@ export class TwitterApi {
   private oauth_token: string;
   private oauth_token_secret: string;
 
-  private readonly baseUrl = "https://api.twitter.com/1.1/";
+  private baseUrl = "https://api.twitter.com/1.1/";
   private readonly oauth_version = "1.0";
   private readonly oauth_signature_method = "HMAC-SHA1";
 
@@ -38,6 +38,14 @@ export class TwitterApi {
     this.oauth_consumer_secret = keys.consumerApiSecret;
     this.oauth_token = keys.accessToken;
     this.oauth_token_secret = keys.accessTokenSecret;
+  }
+
+  getBaseUrl(): string {
+    return this.baseUrl;
+  }
+
+  setBaseUrl(baseUrl: string): void {
+    this.baseUrl = baseUrl;
   }
 
   /** 
