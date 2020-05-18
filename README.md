@@ -7,7 +7,8 @@ authentication.
 ### Note
 It does not handle any user authentication. It only handles application authentication.
 
-## How To Use
+## How To Run
+'deno run --allow-net example.ts'
 
 ## Requests
 
