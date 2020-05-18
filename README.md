@@ -33,8 +33,12 @@ There are a couple different ways of making requests. These are shown with `user
 and `alternativeGet` as well as with `postResult` and `alternativePost`.
 
 The first parameter of `twitterApi.get()` is the url. This should not include anything 
-before or including `/1.1/`. Only pass in the url after `/1.1/`. The optional second parameter
-is the query parameters. They should follow the form
+before or including `/1.1/`. Only pass in the url after `/1.1/`. 
+
+For example, if the url is `https://api.twitter.com/1.1/lists/statuses.json`, the parameter 
+should be `lists/statuses.json`
+
+The optional second parameter is the query parameters. They should follow the form
 ```
 interface Options {
   [key: string]: string
