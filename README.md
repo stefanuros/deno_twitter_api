@@ -8,7 +8,7 @@ authentication.
 It does not handle any user authentication. It only handles application authentication.
 
 ## How To Run
-Install it by including the link to `mod.ts` in the import. There is more detail in
+Install it by including the link to `mod.ts` in the import. There is more detail in `example.ts`.
 `import { TwitterApi } from './mod.ts'`;
 
 Run the example by running `deno run --allow-net example.ts`
