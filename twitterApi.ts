@@ -1,4 +1,4 @@
-import { hmac } from "https://deno.land/x/hmac@v1.0.2/mod.ts";
+import { hmac } from "https://deno.land/x/hmac@v2.0.1/mod.ts";
 import { v4 } from "https://deno.land/std@0.51.0/uuid/mod.ts";
 
 interface Keys {
