@@ -4,9 +4,6 @@ This module will make accessing the twitter api much easier. You must provide yo
 own keys and pass them in, and then this module will handle all of the request 
 authentication. 
 
-#### Note
-It does not handle any user authentication. It only handles application authentication.
-
 ## How To Run
 Install it by including the link to `mod.ts` in the import. There is more detail in `example.ts`.
 `import { TwitterApi } from './mod.ts'`;
