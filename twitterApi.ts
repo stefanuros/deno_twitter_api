@@ -8,6 +8,10 @@ interface Keys {
   accessTokenSecret: string,
 }
 
+interface Settings {
+  apiVersion: '1.1' | '2';
+}
+
 interface Options {
   [key: string]: string
 }
@@ -17,6 +21,7 @@ export class TwitterApi {
   private oauth_consumer_secret: string;
   private oauth_token: string;
   private oauth_token_secret: string;
+  private settings: Settings;
 
   private baseUrl = "https://api.twitter.com/1.1/";
   private readonly oauth_version = "1.0";
@@ -33,11 +38,13 @@ export class TwitterApi {
   * need to generate your own and pass them in when creating the TwitterOauth 
   * object.
   */
-  constructor(keys: Keys) {
+  constructor(keys: Keys, settings?: Settings) {
     this.oauth_consumer_key = keys.consumerApiKey;
     this.oauth_consumer_secret = keys.consumerApiSecret;
     this.oauth_token = keys.accessToken;
     this.oauth_token_secret = keys.accessTokenSecret;
+    this.settings = Object.assign({apiVersion: '1.1'}, settings);
+    this.baseUrl = 'https://api.twitter.com/' + this.settings.apiVersion + '/';
   }
 
   getBaseUrl(): string {
