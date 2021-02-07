@@ -23,9 +23,8 @@ let alternativeGet = await twitterApi.request("GET", "statuses/user_timeline.jso
   tweet_mode: "extended", // Used to prevent truncating tweets
 });
 
-// These post requests do not work in the current state and are here	
+// These post requests do not work in the current state and are here
 // to show how someone would be able to use the post function
-
 let postResult = await twitterApi.post("statuses/update.json", {
   status: "Hello Ladies + Gentlement, a signed OAuth request!"
 });
