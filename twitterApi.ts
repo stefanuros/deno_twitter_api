@@ -105,7 +105,7 @@ export class TwitterApi {
 
     let headers = new Headers({
       "Authorization": authHeader,
-      "Content-Type": "applicaton/json"
+      "Content-Type": "application/json"
     });
 
     let request = new Request(this.baseUrl + url + "?" + new URLSearchParams(options).toString(), {
