@@ -87,7 +87,7 @@ export class TwitterApi {
    * 
    * Bad: `https://api.twitter.com/1.1/lists/statuses.json`
   */
-  async request( method: "GET" | "POST", url: string, options?: Options): Promise<Response> {
+  async request( method: "GET" | "POST", path: string, options?: Options): Promise<Response> {
     if(options == null) options = {};
 
     let oauth_nonce: string = this.generateNonce();
@@ -98,28 +98,26 @@ export class TwitterApi {
       {
         options,
         method,
-        url
+        url: path
       });
 
-    let authHeader: string = this.createAuthHeader(oauth_nonce, oauth_timestamp, oauth_signature);
+    let headers = new Headers(
+        {
+            'Authorization': this.createAuthHeader(oauth_nonce, oauth_timestamp, oauth_signature),
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    );
 
-    let headers = new Headers({
-      "Authorization": authHeader,
-      "Content-Type": "application/json"
-    });
-
-    let request = new Request(this.baseUrl + url + "?" + new URLSearchParams(options).toString(), {
-      method,
-      headers,
-    });
-
-    // console.log(authHeader)
-
-    // console.log(request);
-    // console.log(headers)
+    let request = new Request(
+        this.baseUrl + path, 
+        {
+            method,
+            headers,
+            body: new URLSearchParams(options)
+        }
+    );
 
     return await fetch(request);
-    // return setTimeout(() => {}, 1000);
   }
 
   private createSignature(
